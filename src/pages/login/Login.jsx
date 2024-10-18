@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Slide,toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const [Username, setUsername] = useState('');
@@ -6,8 +8,8 @@ const Login = () => {
     const [, setIsPasswordInputFocused] = useState(false);
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-  
-  
+
+    var navigate = useNavigate();    
     const validatePassword = () => {
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{8,}$/;
       return passwordRegex.test(Password);
@@ -33,23 +35,29 @@ const Login = () => {
       if (!usernameError && !passwordError) {
         const loginUser = { Username, Password };
         console.log(loginUser);
+        const basicAuth = btoa(`${Username}:${Password}`);
   
         try {
           const response = await fetch(`https://api-qa.belcorp.biz/oauth/token`, {
             method: 'POST',
             headers: {
+              'Authorization': `Basic ${basicAuth}`,
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body:new URLSearchParams({Username :Username,Password :Password}), 
+            body:new URLSearchParams( {'grant_type': 'client_credentials'}),
           });
   
           if (!response.ok) {
             throw new Error('Login failed');
           }
-  
+        
           const data = await response.json();
+          toast.success('LoggedIn Successfully');
           console.log('Login successfully', data);
           sessionStorage.setItem('token', data.access_token);
+          setTimeout(() =>{
+            navigate('/mirra-assistant');
+          },1000)         
         } catch (error) {
           console.error('Login error:', error);
         }
@@ -62,13 +70,6 @@ const Login = () => {
         className="hidden lg:flex items-center justify-center bg-[url('https://esikaperu.vtexassets.com/assets/vtex.file-manager-graphql/images/773b8989-bc16-427a-82d6-c9636a2989ef___0ae9d5fdf4c70697db92f46df83626cc.jpg')] bg-cover p-4 flex-1 h-screen"
         style={{ borderBottomRightRadius: '450px' }}
       >
-        {/* <div className="max-w-xs">
-          <img
-            src="https://esika.vtexassets.com/arquivos/e-logo-esika-right.svg"
-            alt=""
-            className="relative bottom-3.5 left-80 h-10 w-10 hidden xl:block"
-          />
-        </div> */}
       </div>
       <div className="lg:w-10/12 xl:max-w-screen-sm">
         <div className="pt-8 pb-8 mt-20 bg-white-100 lg:bg-white flex justify-center lg:justify-center lg:px-10">
@@ -120,6 +121,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer transition={Slide}/>
     </div>
     </>
   )
