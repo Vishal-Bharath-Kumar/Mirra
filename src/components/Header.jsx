@@ -4,6 +4,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import ImageGallery from "./ImageGallery";
 import GetCallback from "./GetCallback";
 import TrendingDeals from "./TrendingDeals";
+import WhyChooseUs from "./WhyChooseUs";
 const Header = () => {
   const slideRef = useRef(null);
   const [loadingProgress] = useState(0);
@@ -120,6 +121,7 @@ return (
         <ImageGallery />
         <GetCallback />
         <TrendingDeals />
+        <WhyChooseUs />
 
     </>
 );
