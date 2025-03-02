@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../assets/logos/96logo.png";
 
 const Navbar = () => {
@@ -12,11 +13,11 @@ const Navbar = () => {
             <span className="line line3"></span>
           </div>
           <ul className="menu-items">
-            <li>
-              <a href="#">Home</a>
+            <li>             
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
               <a href="#">Packages</a>

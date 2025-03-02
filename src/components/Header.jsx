@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import ImageGallery from "./ImageGallery";
 import GetCallback from "./GetCallback";
-import InteractiveMap from "./InteractiveMap";
+import TrendingDeals from "./TrendingDeals";
 const Header = () => {
   const slideRef = useRef(null);
   const [loadingProgress] = useState(0);
@@ -119,7 +119,7 @@ return (
         </div>
         <ImageGallery />
         <GetCallback />
-        <InteractiveMap />
+        <TrendingDeals />
 
     </>
 );
