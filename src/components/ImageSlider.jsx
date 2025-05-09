@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -79,7 +78,7 @@ return (
                 </SwiperSlide>
             ))}
         </Swiper>
-        <style jsx global>{`
+        <style>{`
             .swiper-button-next,
             .swiper-button-prev {
                 color: #9faa0b;

@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { FaPlane, FaMapMarkedAlt, FaHotel, FaUserTie, FaGift } from "react-icons/fa";
+import { FaMapMarkedAlt, FaHotel, FaUserTie, FaGift } from "react-icons/fa";
 
 const services = [
   { id: 1, title: "Itinerary Planning", description: "Tailored travel plans to suit your dream destinations.", icon: <FaMapMarkedAlt size={40} /> },

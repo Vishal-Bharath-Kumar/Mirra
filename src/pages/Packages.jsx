@@ -1,13 +1,17 @@
-import React from 'react'
 import Navbar from '../layout/Navbar'
 import PackageListings from '../components/PackageListings'
+import GetCallback from '../components/GetCallback'
+import Footer from '../components/Footer'
+import HeroBanner from '../components/HeroBanner'
 
 const Packages = () => {
   return (
     <>
     <Navbar />
-    <h2 className="text-4xl font-bold text-center mb-8">Featured Travel Packages</h2>
+    <HeroBanner />
     <PackageListings />
+    <GetCallback />
+    <Footer />
     </>
   )
 }

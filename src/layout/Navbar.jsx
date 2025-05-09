@@ -23,7 +23,7 @@ const Navbar = () => {
               <Link to="/packages">Packages</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
           <img src={Logo} alt="icon" height={36} width={36} />
